@@ -19,11 +19,5 @@ export default StyleSheet.create({
     width: '30%',
     display: 'flex',
     flexDirection: 'column'
-  },
-  headerText: {
-    color: 'black',
-    fontSize: '80px',
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold'
   }
 });

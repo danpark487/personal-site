@@ -3,34 +3,41 @@ import { TweenMax } from 'gsap';
 
 // importing inline styles
 import { css } from 'aphrodite';
-import Styles from '../stylesheets/HomeStyles';
+import Styles from '../stylesheets/HeaderStyles';
 
 class Headers extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      styleClass: css(Styles.headerText)
+    }
   }
 
-  componentWillEnter (callback) {
-    console.log('entering')
-    const el = this.container;
-    TweenMax.fromTo(el, 1, {opacity: 0}, {opacity: 1, onComplete: callback});
+  componentWillEnter (callback) { 
+    const el = this.header;
+    this.setState({
+      styleClass: css(Styles.headerEnter)
+    });
   }
 
   componentWillLeave (callback) {
-    console.log('leaving')
-    const el = this.container;
-    TweenMax.fromTo(el, 1, {opacity: 1}, {opacity: 0, onComplete: callback});
+    const el = this.header;
+    console.log('leaving', el)
+    this.setState({
+      styleClass: css(Styles.headerLeave)
+    });
+    // TweenMax.fromTo(el, 1, {x:0, opacity: 1}, {x:-2000, opacity: 0, ease: Power3.easeOut, onComplete: callback});
   }
 
   render() {
     const { display } = this.props;
+    const { styleClass } = this.state;
 
     return (
-      <div key="header" ref={c => this.container = c}>
-        <a className={css(Styles.headerText)} >
-          {display}
-        </a>
-      </div>
+      <a ref={c => this.header = c} className={styleClass}>
+        {display}
+      </a>
     );
   }
 };

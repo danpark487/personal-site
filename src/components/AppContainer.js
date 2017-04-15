@@ -7,8 +7,7 @@ import Headers from './Headers';
 
 //importing transition animation styles
 import { css } from 'aphrodite';
-import Styles from '../stylesheets/HomeStyles';
-import TransitionStyles from '../stylesheets/TransitionStyles';
+import Styles from '../stylesheets/AppStyles';
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -31,22 +30,24 @@ class AppContainer extends React.Component {
     const { show, display } = this.state;
 
     return (
-      <div>
-        <TransitionGroup>
-          { show ? null : <Headers display={display} /> }
-        </TransitionGroup>
-        <CSSTransitionGroup
-          transitionName="example"
-          transitionEnterTimeout={2000}
-          transitionLeaveTimeout={2000}
-        >
-          {
-            React.cloneElement(  // for transitions with react-router v.3
-              children,
-              {key: location.pathname, handleNavigation: this.handleNavigation}
-            )
-          }
-        </CSSTransitionGroup>
+      <div className={css(Styles.container)}>
+        <div className={css(Styles.header)}>
+          <TransitionGroup>
+            <Headers key={display} display={display} />
+          </TransitionGroup>
+          <CSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+          >
+            {
+              React.cloneElement(  // for transitions with react-router v.3
+                children,
+                {key: location.pathname, handleNavigation: this.handleNavigation}
+              )
+            }
+          </CSSTransitionGroup>
+        </div>
       </div>
     )
   }
