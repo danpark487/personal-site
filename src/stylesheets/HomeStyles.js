@@ -21,7 +21,7 @@ export default StyleSheet.create({
     flexDirection: 'column'
   },
   headerText: {
-    color: 'white',
+    color: 'black',
     fontSize: '80px',
     fontFamily: 'Montserrat',
     fontWeight: 'bold'

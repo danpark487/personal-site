@@ -22,7 +22,7 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   linkText: {
-    color: 'white',
+    color: 'black',
     fontSize: '30px',
     fontFamily: 'Montserrat',
     paddingLeft: '20px'

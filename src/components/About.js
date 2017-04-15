@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSTransitionGroup, CSSTransition, transit } from "react-css-transition";
 
 // importing inline styles
 import { css } from 'aphrodite';

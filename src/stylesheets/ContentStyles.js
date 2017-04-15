@@ -24,7 +24,7 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   contentText: {
-    color: 'white',
+    color: 'black',
     fontSize: '30px',
     fontFamily: 'Cardo'
   }
